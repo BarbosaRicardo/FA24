@@ -1,0 +1,262 @@
+Received: from DS0PR12MB8528.namprd12.prod.outlook.com (2603:10b6:8:160::6) by
+ IA1PR12MB6307.namprd12.prod.outlook.com with HTTPS; Sun, 15 Sep 2024 09:38:45
+ +0000
+Received: from MRXP264CA0017.FRAP264.PROD.OUTLOOK.COM (2603:10a6:500:15::29)
+ by DS0PR12MB8528.namprd12.prod.outlook.com (2603:10b6:8:160::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7962.23; Sun, 15 Sep
+ 2024 09:38:44 +0000
+Received: from MR0P264MB4720.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:500:15:cafe::c2) by MRXP264CA0017.outlook.office365.com
+ (2603:10a6:500:15::29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7939.30 via Frontend
+ Transport; Sun, 15 Sep 2024 09:38:42 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=kDvjWZJvlSiQwS+FI8FGaL6pxr8K1bDpszOH9cYOxks5tBvQi/bjtubk8tf/EFfLR7HCP7TB2JUo618Y3aUCpFWEGybORj4JggOetYnlUjowyjH6yjgVCPb72ypLHoqDtXsA/Chbs2JX6W4Dswj54WZmHv95ALD+Xo86uvkBJBSLSN/UGS4AZzHIXEdgf4oZ1M3Fenu9qSrgeXHiW/GesRJQS6yLfAr+v68sw4lK80pjjessB+VJyoXKlS41BiAOZB1XSwzspKrH2Xby1GIdotvEigHSHb+u8pzI/cHzN6lTDwKs5fuWLMNd0tsiMk8ACfqYXR5rnZiWAHVHC8PPrQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SYAzTJyfZxSaR4gjIshKXHWlBLPVeQIzW7JNdj0cU6Y=;
+ b=vgD/oy0qFFjXMi2VF7UXUgTyFn1egCRTePY5lgUIlSi6ne3RQygTy9AcZNhf+WY2s/xdt+9UpTulLVHKwIUCG6i1FO8P1yy+BzFr8XDYPDP/5jvcVr+UMws868ZrIjWEOSDA3nxoyxQTVgaD3rpnCqBdwhg9P5abfTs67Fog5Q3/0miP/WF2LN4r846qPHq90d8iY/QXpUYsxseOx2RsQMOmf8nA07SNk4bLAbQVIE9wJvUBq0cwJ4IzCBFy91/NE3H76vDEw5pNEul8L6B0qwUEvhuEx1L59DV2R28dMvnwsQBSBgUnLadX8ZZK8QkbHFfrL6XfdkKoolFC826XlA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 205.220.176.236) smtp.rcpttodomain=edf-re.com
+ smtp.mailfrom=pcienergysolutions.com; dmarc=pass (p=reject sp=reject pct=100)
+ action=none header.from=pcienergysolutions.com; dkim=pass (signature was
+ verified) header.d=pcienergysolutions.com; arc=pass (0 oda=0 ltdi=1)
+Received: from AS8PR05CA0002.eurprd05.prod.outlook.com (2603:10a6:20b:311::7)
+ by MR0P264MB4720.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:63::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7962.23; Sun, 15 Sep
+ 2024 09:38:36 +0000
+Received: from AMS0EPF000001B4.eurprd05.prod.outlook.com
+ (2603:10a6:20b:311:cafe::8) by AS8PR05CA0002.outlook.office365.com
+ (2603:10a6:20b:311::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7939.30 via Frontend
+ Transport; Sun, 15 Sep 2024 09:38:36 +0000
+Authentication-Results: spf=fail (sender IP is 205.220.176.236)
+ smtp.mailfrom=pcienergysolutions.com; dkim=pass (signature was verified)
+ header.d=pcienergysolutions.com;dmarc=pass action=none
+ header.from=pcienergysolutions.com;compauth=pass reason=100
+Received-SPF: Fail (protection.outlook.com: domain of pcienergysolutions.com
+ does not designate 205.220.176.236 as permitted sender)
+ receiver=protection.outlook.com; client-ip=205.220.176.236;
+ helo=mx0b-0057e901.pphosted.com;
+Received: from mx0b-0057e901.pphosted.com (205.220.176.236) by
+ AMS0EPF000001B4.mail.protection.outlook.com (10.167.16.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7918.13 via Frontend Transport; Sun, 15 Sep 2024 09:38:35 +0000
+Received: from pps.filterd (m0214525.ppops.net [127.0.0.1])
+	by mx0b-0057e901.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 48F9aCT0020586
+	for <_US-PacificWindNotifications@edf-re.com>; Sun, 15 Sep 2024 02:38:34 -0700
+Authentication-Results-Original: ppops.net;	spf=pass
+ smtp.mailfrom=OMS@pcienergysolutions.com;	dkim=pass
+ header.d=pcienergysolutions.com header.s=selector1;	dmarc=pass
+ header.from=pcienergysolutions.com
+Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazon11020092.outbound.protection.outlook.com [52.101.51.92])
+	by mx0b-0057e901.pphosted.com (PPS) with ESMTPS id 41n9ut0fxp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <_US-PacificWindNotifications@edf-re.com>; Sun, 15 Sep 2024 02:38:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K8PEj2BWlFVGWX+QeCAym2o8ZWoQx5YmLfgKOMto4b/f/89o0ibGfvXXDoewXk3pQ6/3gIDJLhXOyZ9iyDAZGBV7juOqmXLrJg9mgopqopEkZiSnat3ArCi7AZtcYuHDJNYj1KNeW+gb+7k4LjN6Exvm7NMxcdfGlA8YR/45FAkaep6llAO2AEB3fGWUr+YjdcPQMu/22flTL3xsTlQ1yimDXPy8uHMHwVd7l/kDplOixlalyDLhuk6tdaijwZFUeP3BlUWRwCWvYH+PT9ZqlrD1htBiA18kQ4s6quVgWDWLClWQananRbDlCTi5WwqBUFs7LI6lt+dgdttFOxotzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SYAzTJyfZxSaR4gjIshKXHWlBLPVeQIzW7JNdj0cU6Y=;
+ b=iPZDNsQmgrS1UMlsV2uQD3ltvsIn0gSLlgTpWTvJNBgX99X85JgmVitGYD0wxFKzZfJpKvA6C3mTyIadD3Dwebd0RHzTG/SejQ62k6ikqaJ29t7caDhgRRvXblsIEw2L174Kn9ZBK3J0j/OaJDnE+riweVnGgwdaT8QJkoRX65T3tJMux/VN1nNcdAWcqcJNJ8Qahm2Z/Z+uhsh53aJzsLsiEj5uLDH5uB98NPl8IBXTNjojLDBhwWlBCgP/fG9SkN1t3c8L00Qq4q3V2V9yxx2Micqznf6UwRTCTR1MTJiIDL5oo1eNnHctMIPvMHwJdund/Sa+MScqoPsBP3jqLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 54.149.11.78) smtp.rcpttodomain=edf-re.com
+ smtp.mailfrom=pcienergysolutions.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=pcienergysolutions.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=pcienergysolutions.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SYAzTJyfZxSaR4gjIshKXHWlBLPVeQIzW7JNdj0cU6Y=;
+ b=hsEXxAQByS5ja8BFa8AxB19rCoZafjpocaW86GU7hmbp4BAm5bNiiCYvCilf2LER3BcJw6ekR2M1lRFDnfSgftv0VIv6tDDNEB2lj5JHZ5Sm/OtjL6agrQiOqXMnXycPd8jjzKUFBd2EeEzQhDb35dXBJGzE2YPacG7j3rcQQAsmO/KSTkqS98pBQTAJ/9Yor1YqBlrE8UNZVFsfEPmMNpAxFzI2x8d9bWu74cG1V7Eh+EM/+eC2D98yIpvbSF/4JnoS2SJ9CRUupHgNNuyUwDlmw38kKb7lj/6L/Rh/gOUAukIcHBR7zur06imf6oD1Cym5vbtWcqqxhdXdCnA+Kw==
+Received: from BN0PR04CA0081.namprd04.prod.outlook.com (2603:10b6:408:ea::26)
+ by BLAPR03MB5474.namprd03.prod.outlook.com (2603:10b6:208:285::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7962.22; Sun, 15 Sep
+ 2024 09:38:28 +0000
+Received: from BN3PEPF0000B36F.namprd21.prod.outlook.com
+ (2603:10b6:408:ea:cafe::db) by BN0PR04CA0081.outlook.office365.com
+ (2603:10b6:408:ea::26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7939.29 via Frontend
+ Transport; Sun, 15 Sep 2024 09:38:28 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 54.149.11.78)
+ smtp.mailfrom=pcienergysolutions.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=oreject header.from=pcienergysolutions.com;
+Received-SPF: Fail (protection.outlook.com: domain of pcienergysolutions.com
+ does not designate 54.149.11.78 as permitted sender)
+ receiver=protection.outlook.com; client-ip=54.149.11.78;
+ helo=edfr-pap01.powercosts.com;
+Received: from edfr-pap01.powercosts.com (54.149.11.78) by
+ BN3PEPF0000B36F.mail.protection.outlook.com (10.167.243.166) with Microsoft
+ SMTP Server id 15.20.8005.1 via Frontend Transport; Sun, 15 Sep 2024 09:38:26
+ +0000
+Date: Sun, 15 Sep 2024 05:38:26 -0400 (EDT)
+From: OMS@pcienergysolutions.com
+To: _US-PacificWindNotifications@edf-re.com
+Message-ID: <514228242.73.1726393106397@mail.powercosts.com>
+Subject: Forced Outage Notification
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_72_84889677.1726393106397"
+X-Mailer: JavaMailer
+X-EOPAttributedMessage: 1
+X-MS-TrafficTypeDiagnostic:
+ BN3PEPF0000B36F:EE_|BLAPR03MB5474:EE_|AMS0EPF000001B4:EE_|MR0P264MB4720:EE_|DS0PR12MB8528:EE_|IA1PR12MB6307:EE_
+X-MS-Office365-Filtering-Correlation-Id: f20bc329-eea5-4652-8ddf-08dcd56a2bac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:13230040|61400799027|376014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info-Original:
+ =?us-ascii?Q?2yEdd/fiL4boyogd+A9aKcATMVKV5bFIwkIGrhmhPD9ykhM6bhNPj9pLrORQ?=
+ =?us-ascii?Q?p2/0roctlUbCLFS01HJ31A6uzWQNdjwiExWeEBuHTtohhxZt9NHxl45OVg1W?=
+ =?us-ascii?Q?Yq8g2F/OL6ho/rm3swctzQ37uUTJTyJH8XlQ6QdEzoN+0R8Vzim4QfDuzB+q?=
+ =?us-ascii?Q?sJeD8ilHUft7EpIpKN2ZYtM5M/az2puSgXkScmvSUUrsGqoRN+H1R6zitH+m?=
+ =?us-ascii?Q?Oebyq+LonTQGzEAXrsLyXtH4rf2V/5AtGehc+H317ytg+oAgqyjVHEehsWBA?=
+ =?us-ascii?Q?2WdDAZsfeSeN1ZBncipyjRHHYdnjEd3dVqBvRDPr6KCYXe7OyvdBAQZb6epG?=
+ =?us-ascii?Q?0K6h+pmtLfp86eyHY/KXgqBuxj4iWYsr8jSMUIP1IlqJ7I7Z0CDwwUB8/csl?=
+ =?us-ascii?Q?U4ZVXfpHZ0m65l7Ojx+hbc0Gx+5MfAHgoms4U5/kakhB6Gb5il1L2gmNSVAO?=
+ =?us-ascii?Q?fhyyzHVgI9/zgu3Y09xvoV0+SxHW1o7k7J9Kte5SB5vDvLWKMpyteKxH+fnK?=
+ =?us-ascii?Q?NGyK2dVgeI+6emPWKJGXbNd+HNspXsd2eE1Cv1CgS5XT4WGwEJIr6uVPwAvS?=
+ =?us-ascii?Q?aNh+uqdewd8/u7ZBPyC2O+VcJ1Poko+yr+VGovNoU8bgg1LiovLo6yn5OOqE?=
+ =?us-ascii?Q?m3R3qWYJNispEH8lm+0EEPXNIeD6JO4IVxggc3QJsdVz2yxZtnOQsR8Dx5JS?=
+ =?us-ascii?Q?abDqdR7zNO0m+0K9R7AnGTlrVIFtCf9bvWqNY0WSdRTNdmDyq8VDNTXoqGQC?=
+ =?us-ascii?Q?ibzRtZpW1tPwi6Xh7xCxmHLFLRwt0GvTtxOE+bpKjgmLHtboPv5IaEmdxLaa?=
+ =?us-ascii?Q?N+SUk1KvTneGMqAV8j7mkSrIbm9160L+hrFiq9Pz0YF90H1s2igHMw7BM47/?=
+ =?us-ascii?Q?0HwHydLAQjCNZ/uU9NZ+rdSysTmiBqfLTL3Tk4xR1/NFiMB2Shy/C1/Co/DQ?=
+ =?us-ascii?Q?lETq+XADm3DIlOJx+JHJ8Dc8Pjcu/WEPhJlP+FAgxNi7rJqMXdJMr3LkSTWh?=
+ =?us-ascii?Q?49e6tPnKZv2pcw6a519aPJaL4rO0yR9qheGzeYCyy33RGdQ0nIy5CmupBTdG?=
+ =?us-ascii?Q?V3grRgzbDbuPQMDkXG700BUOmCtx4Ps550KLU297yWR22dBFUYY6bhBiyH6c?=
+ =?us-ascii?Q?4qkcVVeTIvetBH1OsBzBoZlclskH16SrunWISJcGjS4fpNeXcu8vfqPDqw1m?=
+ =?us-ascii?Q?/R6NbMmo+8rPDo+B7nFWd23PUrLT60m1Uo7hTCvCjuD0Lt/88BxnGooaXeoZ?=
+ =?us-ascii?Q?QdABd/zv1jN/bqoukJt48Snzn80QzGCKxyCHNWfvSAImxTY+srnG0YokJVeP?=
+ =?us-ascii?Q?TsnYQ/0x6AGOw/hin4Mxevr19ufMeME+ZcJK3668Q6mocGb8gNkauWM2cCJM?=
+ =?us-ascii?Q?ySorGe6+zDVbWxPG+tpKPRPELM79wRexuPWh+5sJ20hCN8eWrA=3D=3D?=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:54.149.11.78;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edfr-pap01.powercosts.com;PTR:ec2-54-149-11-78.us-west-2.compute.amazonaws.com;CAT:NONE;SFS:(13230040)(61400799027)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR03MB5474
+X-Proofpoint-ORIG-GUID: p41y0Gj6sawOTcXO4niGHtxeVh5kABxY
+X-Proofpoint-GUID: p41y0Gj6sawOTcXO4niGHtxeVh5kABxY
+X-CLX-Response: 1TFkXGxwTEQpMehceEhEKWUQXa0ETTG9kfW5nHk8RClhYF2gfSG15Wn8ZYn1 DEQp4ThdtWX1EaQUFS29bGhEKeUwXZAVGWkVLRF17QG0RCkNIFwcbGB0RCkNZFwcZGBoRCkNJFx oEGhoaEQpZTRdnZnIRCllJFxpxGhAadwYbHhNxGRoQGncGGBoGGhEKWV4XbGx5EQpJRhdPTkxYT
+ 3VCRVleT04RCklHF3hPTREKQ04XWh4bUxptQBxZS11lfklyZR5EQ21iXlJPfEIfQWtoUnMRClhc Fx8EGgQZHRkFGxoEGxsaBBsZHgQZGRAbHhofGhEKXlkXT2JvARoRCk1cFxkYGREKTFoXaGlNTWs RCkVZF29raxEKTEYXb2tja2trEQpCTxdjcxkTeWtzYHtwcBEKQ1oXHxgEGxobBB8bBBMYEQpCXh
+ cbEQpCXBcbEQpeThcbEQpCSxdtWX1EaQUFS29bGhEKQkkXbVl9RGkFBUtvWxoRCkJFF2wbX2tQQ 05vXEhFEQpCThdtWX1EaQUFS29bGhEKQkwXaB9IbXlafxlifUMRCkJsF2wbX2tQQ05vXEhFEQpC QBdoWn9achtNTkVTWREKQlgXZElOb3oZYVoeT3oRClpYFxsRCnlDF2VQRVNgSHNae2FMEQpZSxc
+ THh4RCnBoF2N9ZVJ7SV1ZfGVcEBoRCnBoF2RJS19fTXpFcBlNEBsZGhEKcGgXaWtSfHl9YGAaHR oQGxkcEQpwaBducGUaHHNuSWR9YBAaEQpwaBdjZHBaG15MTn1MTxAaEQpwaBduQn0SfGN5QGkdT hAbHx4RCnBoF24YYGYeelocUEhAEBsfExEKcGgXZk5FZnxJU29PQGEQGhEKcEMXbx5mRn5ITBtw
+ HgEQGxkaEQptfhcaEQpYTRdLESA=
+X-CLX-Shades: MLX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 priorityscore=48 malwarescore=0
+ adultscore=0 impostorscore=0 spamscore=0 suspectscore=0 phishscore=0
+ mlxlogscore=833 clxscore=169 mlxscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2408220000
+ definitions=main-2409150072 domainage_hfrom=944
+Return-Path: OMS@pcienergysolutions.com
+X-MS-Exchange-Organization-ExpirationStartTime: 15 Sep 2024 09:38:35.5746
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ f20bc329-eea5-4652-8ddf-08dcd56a2bac
+X-EOPTenantAttributedMessage: 34c5e68e-b374-47fe-91da-0e3d638792fb:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ AMS0EPF000001B4.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ 60cdb9bf-35c4-4c1b-2ab1-08dcd56a2697
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-Organization-SCL: -1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|12012899012|35042699022|82310400026;
+X-Forefront-Antispam-Report:
+ CIP:205.220.176.236;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:CAL;SFV:NSPM;H:mx0b-0057e901.pphosted.com;PTR:mx0b-0057e901.pphosted.com;CAT:NONE;SFS:(13230040)(12012899012)(35042699022)(82310400026);DIR:INB;
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2024 09:38:35.0433
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f20bc329-eea5-4652-8ddf-08dcd56a2bac
+X-MS-Exchange-CrossTenant-Id: 34c5e68e-b374-47fe-91da-0e3d638792fb
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B4.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MR0P264MB4720
+X-MS-Exchange-Organization-AuthSource:
+ AMS0EPF000001B4.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:10.9416415
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7962.017
+X-Microsoft-Antispam-Mailbox-Delivery:
+ ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+ =?us-ascii?Q?Cr48aPzbXFn1+ppL9BAVQng19lH6iwOzqaBT1zBnDMLRehKEq6Fr1iLIpYS9?=
+ =?us-ascii?Q?r6I7gjekD02hHRbkndNymLFGEazT01shYYvfiDIx9O97Uv/PzzNJ4Yh5FqfC?=
+ =?us-ascii?Q?VJJ0o1f8a993r5MfvoJ6NteNcA3IUoPSvgvBzuHoaL86X6Y5woFXLLjiDiPe?=
+ =?us-ascii?Q?90MDMchVvVYMljFLaSng5pj4OfTphkAadZUMGyfVppUaXs9e2T510Pco0d0b?=
+ =?us-ascii?Q?LW8MXrAQcz3K/esy6gbZmKZTMH6IjhwG/vR1TRif+CNKbYJ/t3cwU3Cq0yGi?=
+ =?us-ascii?Q?G4cadSOpdXODtuaY9TpjktCqMdHVbVZ7W8Ls3VQrjFZQoUp+cE7a6vJjz61w?=
+ =?us-ascii?Q?1IjdoibIDUdUbvE4TUigihaX7zU+SpN9Hjd+ZVO3DDQSLOTkNpMDKstEL1rB?=
+ =?us-ascii?Q?R73pRMV0+H2wR6dgBI27sGnW1f3ZP9J98I85eSdCBbEz7QurplNj/xMPYQTT?=
+ =?us-ascii?Q?SlTzX2ZOfqPxp9BPThnxfvKKi7nz0TJALAiKWldddBFiRUZAW4kJkRiGdvse?=
+ =?us-ascii?Q?Nk627tCOa5uK+XAdIU1SYoNrSZrFjOlZ++Ctv7OQjC/NxFbxZMeAmFpVcfEW?=
+ =?us-ascii?Q?EJlp64jZy+O/EHgvEEYSuXPtfShJq4DWs+a3tl84z4uL8cAfWcGtphD8Ib3V?=
+ =?us-ascii?Q?Eei6ePFHy11e4A5C9eEi2RU7Hx87O/v6hS2e4Oj4wGRmLY2FMMwljuD95F/S?=
+ =?us-ascii?Q?03aobAWu0eSnOMk8/SIczuUcpj90+uXNuYgViI/UB0cFmttnEwT1IjBm55oW?=
+ =?us-ascii?Q?Kb8F6EwpQFEf3JRO367ztu99ynLeUn5VPLal08emtoFUkZvqQaO7JRE9Y/t0?=
+ =?us-ascii?Q?7VoiAfG1KN4RFNguOrDMwrBkn/QY2FGeqdKqhqd6CXuVf/si+pqqSr1bzMSX?=
+ =?us-ascii?Q?sA6n0+J3/Y+ZBcgKZb7c6GQ8OM5N57vHv+K6pphra4DOxQPGf4pBum2y42K+?=
+ =?us-ascii?Q?fwlqi0qEfgptDcyXLcqHtC05Jcgj6GrlmyY/zq/L9kZ8VtG0U+2yZWzSmwxI?=
+ =?us-ascii?Q?2cq5Z7BXl4ybQa+lvyLY/TAhMW0jT3uxF5CRZF3PjhrpsibIiTzvezXokWLF?=
+ =?us-ascii?Q?7T2p4MdTgH6/3SXzypu9xkItLOKg1WfzZEYtDBOqdCVPQJhKEksc/Fps2Wiw?=
+ =?us-ascii?Q?v4SFlzmzdS84a55LwgT6eYZDIuXjb73lqy37CTasRrdnH61ibhxmlgAGLaZM?=
+ =?us-ascii?Q?I+IYyjQru6umzwkGIeqZVVu5nAPJNCIRH1TUyPPddGXrOJu5IU35WMH+9XTn?=
+ =?us-ascii?Q?gtZ6DKSjkB9gCr9hbQQpTVzqsEJxHwtfs0X6jkemVLOMKPTr88SUXpNJ4UD8?=
+ =?us-ascii?Q?/0/9juK9KBSXlSPA+dX0+lbkYQaZP2bB7wbMggMUMCpfGh+MjyqbCU0UC6Tv?=
+ =?us-ascii?Q?AyuPyGQEa3Ln1j+dDXUIr1Q4Ny0O+vsegAZLs8TyJq15NFAxWgCsnqwi9UNF?=
+ =?us-ascii?Q?oeuMsawgACZPzGaJzuTSjtVyjU1FbIQlgRDhnMO2ZQ+2iTBJvgLyRe9Inp+k?=
+ =?us-ascii?Q?tUy33mUS+DOEmsUwK8NgfDkmQkZCc7d7ifHc9M0NqesxyHcEk+1NI7NosBsG?=
+ =?us-ascii?Q?OvTyVjCOxNDLGcazqXPLOZHvaGfxbm1FZI0Na+Y2gzrDimbDJgmW1aTR54kg?=
+ =?us-ascii?Q?cQHLsTJHPsHgjvf53b9hx9p8X7yZcudHY7dSf+Gde4xdcGZ8Y+8IOgInsjG5?=
+ =?us-ascii?Q?FWGxQGP45uXB34LnnWo3FKunFW+Kak6mh3bIAd1sO1P9Zt0CHJxrZv9G7k0d?=
+ =?us-ascii?Q?b1ZffSYXSkjpxnGm7LUMAppyauB1Vt21/XTIPqQvN3UrIwGX5X64C5PWOZUm?=
+ =?us-ascii?Q?QHsiWS2QH+lniz83yPCatrKR48eZUcUFk20+BMsiFWOERP1Sz/ReV/myu2W9?=
+ =?us-ascii?Q?gF1IprB8diyImoYkcuj4APwkHb6Wo//buOBhrTooPwctu4otUZtk7biKlJ6G?=
+ =?us-ascii?Q?SpH1tz65RTymqfQhgDvGHkrZxSt9ab6b7XfyYlVkT6H6gT+DmnKaN4i+u914?=
+ =?us-ascii?Q?zoUYL4sndnBa2IOnu+QVrKPjkb2YA0lPTl+LxsBg0DSPYObBiGw1orU3dZCQ?=
+ =?us-ascii?Q?6chat8tY+16kYGHaiK2QHpoFEysbQjoOr4dfI6NUXGX189RRJBlf3uuPSkjn?=
+ =?us-ascii?Q?UC8ATkQS8Vil3JA6mtY2AtlS/jExzjpogdHuKA3G4o3vIw0HWyvCAkVGoleb?=
+ =?us-ascii?Q?njXq4nG5LqtgmUzA?=
+MIME-Version: 1.0
+
+------=_Part_72_84889677.1726393106397
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+EXTERNAL EMAIL : This email originated from outside the organization. Do no=
+t click links or open attachments unless you recognize the sender and are c=
+onfident the content is safe.
+
+
+Good Day,
+
+
+Please see outage request for Pacific Wind
+
+
+Start Date: 09/24/2024 06:00 PPT
+End Date: 09/24/2024 15:00 PPT
+Nature of Work: METERING_TELEMETRY
+Notes: Network hardware replace. Communication will be intermittent for the=
+ duration of the outage. No effect on generation.
+
+OMS #: 16566377
+The preceding e-mail message (including any files attached to it) contains =
+information that may be privileged, proprietary, private or confidential. I=
+f you are not an intended recipient of this message, please notify me by re=
+plying to this message and then delete it from your system. Use, distributi=
+on or reproduction of this e-mail message (including attachments) by uninte=
+nded recipients is prohibited.
+
+------=_Part_72_84889677.1726393106397--
