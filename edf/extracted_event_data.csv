@@ -1,83 +1,240 @@
 Site Name,Nature of Work,ISO Cause Code
-King Creek 2,Transformer Repair/Replace,Plant Derate
-Maverick 4,METERING_TELEMETRY,Plant Derate
-Pacific Wind,PLANT_MAINTENANCE,Plant Derate
-Catalina 1,PLANT_TROUBLE,Plant Derate
-Milligan 1,Plant Derate,U - Upgrade
-Bull Creek,Other,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Slate Creek,Plant Derate,OTR - Other
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Slate Creek,Plant Derate,OTR - Other
-Slate Creek,Plant Derate,OTR - Other
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Bull Creek,Other,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Pacific Wind,PLANT_MAINTENANCE,Plant Derate
-Desert Harvest 1,METERING_TELEMETRY,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Shiloh 2,PLANT_MAINTENANCE,Plant Derate
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Shiloh 2,PLANT_TROUBLE,Plant Derate
-Milligan 1,Plant Derate,U - Upgrade
-Catalina 1,PLANT_TROUBLE,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Maverick 1,METERING_TELEMETRY,Plant Derate
-Pland Derate,Plant Derate,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Bull Creek,Other,Plant Derate
-Maverick 6,METERING_TELEMETRY,Plant Derate
-King Creek 2,Transformer Repair/Replace,Plant Derate
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Catalina 1,PLANT_TROUBLE,Plant Derate
-Maverick 7,METERING_TELEMETRY,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Catalina 1,PLANT_TROUBLE,Plant Derate
-Milligan 1,Plant Derate,U - Upgrade
-Hereford,Other,Plant Derate
-Shiloh 2,PLANT_TROUBLE,Plant Derate
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Shiloh 3,PLANT_MAINTENANCE,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Catalina 1,PLANT_TROUBLE,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Hereford,Other,Plant Derate
-Pland Derate,Plant Derate,Plant Derate
-Pland Derate,Plant Derate,Plant Derate
-Shiloh 4,PLANT_MAINTENANCE,Plant Derate
-La Brisa,PLANT_MAINTENANCE,Plant Derate
-Pland Derate,Plant Derate,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Hereford,Other,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Catalina 1,PLANT_TROUBLE,Plant Derate
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Milligan 1,Plant Derate,U - Upgrade
-Catalina 1,PLANT_TROUBLE,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-King Creek 2,Transformer Repair/Replace,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Pland Derate,Plant Derate,Plant Derate
-Desert Harvest 2,METERING_TELEMETRY,Plant Derate
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Milligan 1,Plant Derate,U - Upgrade
-Karen Avenue,PLANT_MAINTENANCE,Plant Derate
-Pacific Wind,PLANT_MAINTENANCE,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Kelly Creek,Plant Derate,Plant Derate
-Pacific Wind,PLANT_MAINTENANCE,Plant Derate
-Milligan 1,Plant Derate,U - Upgrade
-Pacific Wind,METERING_TELEMETRY,Plant Derate
-Pland Derate,Plant Derate,Plant Derate
-Pland Derate,Plant Derate,Plant Derate
+Catalina 1,PLANT_TROUBLE,N/A
+N/A,N/A,N/A
+King Creek 2,Transformer Repair/Replace,N/A
+Maverick 1,METERING_TELEMETRY,N/A
+La Brisa,PLANT_MAINTENANCE,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_MAINTENANCE,N/A
+Milligan 1,N/A,U - Upgrade
+Bull Creek,Other,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Kelly Creek,N/A,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Catalina 1,PLANT_MAINTENANCE,N/A
+La Brisa,METERING_TELEMETRY,N/A
+Slate Creek,N/A,OTR - Other
+Pacific Wind,PLANT_TROUBLE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+La Brisa,PLANT_TROUBLE,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Hereford,Other,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Hereford,Other,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+La Brisa,PLANT_TROUBLE,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Slate Creek,N/A,OTR - Other
+Shiloh 3,PLANT_TROUBLE,N/A
+Slate Creek,N/A,OTR - Other
+Shiloh 4,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Kelly Creek,N/A,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Bull Creek,Other,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_MAINTENANCE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+La Brisa,PLANT_MAINTENANCE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Maverick 7,METERING_TELEMETRY,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+N/A,N/A,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Kelly Creek,N/A,N/A
+La Brisa,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Shiloh 3,PLANT_MAINTENANCE,N/A
+La Brisa,PLANT_MAINTENANCE,N/A
+Milligan 1,N/A,U - Upgrade
+Hereford,Other,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+La Brisa,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+N/A,N/A,N/A
+Shiloh 4,PLANT_MAINTENANCE,N/A
+Maverick 4,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+Maverick 1,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Bull Creek,Other,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Maverick 6,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+King Creek 2,Transformer Repair/Replace,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Maverick 6,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Maverick 6,METERING_TELEMETRY,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+La Brisa,PLANT_MAINTENANCE,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Kelly Creek,N/A,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+King Creek 2,Transformer Repair/Replace,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+La Brisa,METERING_TELEMETRY,N/A
+Milligan 1,N/A,U - Upgrade
+Hereford,Other,N/A
+La Brisa,METERING_TELEMETRY,N/A
+Shiloh 2,PLANT_MAINTENANCE,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+La Brisa,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Kelly Creek,N/A,N/A
+King Creek 2,Transformer Repair/Replace,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+Maverick 4,METERING_TELEMETRY,N/A
+Kelly Creek,N/A,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+La Brisa,TRANSMISSION_INDUCED,N/A
+La Brisa,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Hereford,Other,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_MAINTENANCE,N/A
+N/A,N/A,N/A
+Maverick 6,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+Maverick 7,METERING_TELEMETRY,N/A
+Shiloh 2,PLANT_MAINTENANCE,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Shiloh 3,PLANT_MAINTENANCE,N/A
+N/A,N/A,N/A
+Maverick 6,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Maverick 4,METERING_TELEMETRY,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Hereford,Other,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+La Brisa,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Kelly Creek,N/A,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+Maverick 1,METERING_TELEMETRY,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+Shiloh 4,PLANT_MAINTENANCE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+Milligan 1,N/A,U - Upgrade
+Shiloh 4,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+King Creek 2,Transformer Repair/Replace,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+King Creek 2,Transformer Repair/Replace,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Maverick 1,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+La Brisa,PLANT_MAINTENANCE,N/A
+Maverick 4,METERING_TELEMETRY,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+King Creek 2,Transformer Repair/Replace,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+La Brisa,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Milligan 1,N/A,U - Upgrade
+Shiloh 4,METERING_TELEMETRY,N/A
+Karen Avenue,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Kelly Creek,N/A,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Kelly Creek,N/A,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Catalina 1,PLANT_TROUBLE,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Pacific Wind,PLANT_MAINTENANCE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+Milligan 1,N/A,U - Upgrade
+La Brisa,METERING_TELEMETRY,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+Karen Avenue,PLANT_MAINTENANCE,N/A
+Catalina 1,PLANT_MAINTENANCE,N/A
+Pacific Wind,METERING_TELEMETRY,N/A
+King Creek 2,Transformer Repair/Replace,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
+N/A,N/A,N/A
+Maverick 7,METERING_TELEMETRY,N/A
+N/A,N/A,N/A
+Maverick 1,METERING_TELEMETRY,N/A
+Shiloh 2,PLANT_MAINTENANCE,N/A
+Shiloh 4,PLANT_TROUBLE,N/A
+Shiloh 4,METERING_TELEMETRY,N/A
+Shiloh 2,PLANT_TROUBLE,N/A
+Shiloh 3,PLANT_TROUBLE,N/A
+La Brisa,PLANT_TROUBLE,N/A
+Pacific Wind,PLANT_TROUBLE,N/A
