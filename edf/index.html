@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Adumb - Mock Dispatch System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">emailjs.init("hphFpgVEUcKrue_fe")</script>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        background: #002147;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        flex-shrink: 0;
+      }
+      .login-box {
+        flex-grow: 1;
+        width: 100%;
+        background: white;
+        padding: 2rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+      .dashboard-layout {
+        display: flex;
+        flex-grow: 1;
+        height: calc(100vh - 88px);
+        overflow: hidden;
+      }
+      .dashboard-panel {
+        flex: 1;
+        padding: 2rem;
+        box-sizing: border-box;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden;
+      }
+      .dispatch-panel {
+        flex: 1;
+        padding: 2rem;
+        box-sizing: border-box;
+        background: #f8f9fa;
+        overflow-y: auto;
+        border-left: 2px solid #ccc;
+      }
+      input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      input[type="submit"], button {
+        background: #FFA500;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+      .card {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        background: #fff;
+      }
+      .hidden {
+        display: none;
+      }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 1rem;
+        background: #f0f0f0;
+        margin-bottom: 1rem;
+        border-left: 8px solid #FFA500;
+      }
+      .stats div {
+        font-size: 1.1rem;
+        color: #002147;
+        flex: 1 1 30%;
+      }
+      canvas {
+        margin-top: 2rem;
+        width: 100% !important;
+        height: auto !important;
+        flex-shrink: 0;
+      }
+      #simulateFail {
+        background: red;
+        margin-top: 1rem;
+      }
+      #simulateCrash {
+        background: black;
+        margin-top: 1rem;
+      }
+      #failureModal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        z-index: 9999;
+        display: none;
+        text-align: center;
+      }
+      #failureModal h2 {
+        color: red;
+        margin-bottom: 1rem;
+      }
+    </style>
+    <script>
+      let totalDispatches = 0;
+      let totalAcknowledged = 0;
+      let labels = [];
+      let ackPoints = [];
+      let chart;
+      let crashSimulated = false;
+
+      window.onload = function () {
+        if (document.documentElement.requestFullscreen) {
+          document.documentElement.requestFullscreen();
+        }
+
+        const ctx = document.getElementById("ackChart")?.getContext("2d");
+        if (ctx) {
+          chart = new Chart(ctx, {
+            type: "line",
+            data: {
+              labels: labels,
+              datasets: [{
+                label: "Acknowledged (per batch)",
+                data: ackPoints,
+                borderColor: "#FFA500",
+                backgroundColor: "transparent",
+                tension: 0.3
+              }]
+            },
+            options: {
+              animation: false,
+              responsive: true,
+              scales: {
+                y: { beginAtZero: true }
+              }
+            }
+          });
+        }
+
+        document.getElementById("simulateCrash").onclick = () => {
+          alert("Simulating crash and logging out...");
+          crashSimulated = true;
+          document.getElementById("app").classList.add("hidden");
+          document.getElementById("login").classList.remove("hidden");
+          document.getElementById("botStatus").textContent = "❌ Disconnected";
+        };
+      }
+    </script>
+  </head>
+<body>
+<header>
+  <h1>Adumb Mock Dispatch System</h1>
+</header>
+<div id="login" class="login-box">
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <input type="submit" value="Login">
+  </form>
+  <p><small>Use username: <b>adumb</b> and password: <b>password</b></small></p>
+</div>
+
+<div id="app" class="dashboard hidden">
+  <div class="dashboard-layout">
+    <div class="dashboard-panel">
+      <div style="text-align:right">
+        <button id="logout">Logout</button>
+      </div>
+      <div class="stats">
+        <div>Total Dispatches: <span id="totalDispatches">0</span></div>
+        <div>Total Acknowledged: <span id="totalAcknowledged">0</span></div>
+        <div>Ack Rate: <span id="ackRate">0%</span></div>
+        <div>Bot Status: <span id="botStatus">❌ Disconnected</span></div>
+        <div>Last Ack Time: <span id="lastAck">N/A</span></div>
+      </div>
+      <button id="simulateFail">Simulate Failure</button>
+      <button id="simulateCrash">Simulate Crash</button>
+      <canvas id="ackChart" width="600" height="200"></canvas>
+    </div>
+    <div class="dispatch-panel">
+      <h2>Incoming Dispatches</h2>
+      <div id="dispatchContainer"></div>
+    </div>
+  </div>
+</div>
+
+<div id="failureModal">
+  <h2>⚠️ Acknowledgement Failure Detected</h2>
+  <p>An email alert has been sent.</p>
+  <button id="closeModal">Close</button>
+</div>
+<audio id="failureSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto" loop></audio>
+
+<script>
+  function updateStats() {
+    document.getElementById("totalDispatches").textContent = totalDispatches;
+    document.getElementById("totalAcknowledged").textContent = totalAcknowledged;
+    const rate = totalDispatches > 0 ? ((totalAcknowledged / totalDispatches) * 100).toFixed(1) : 0;
+    document.getElementById("ackRate").textContent = `${rate}%`;
+    const now = new Date();
+    document.getElementById("lastAck").textContent = now.toLocaleTimeString();
+  }
+
+  function generateDispatchCard() {
+    const numCards = Math.floor(Math.random() * 10) + 1;
+    const dispatchContainer = document.getElementById("dispatchContainer");
+    dispatchContainer.innerHTML = '';
+
+    const form = document.createElement("form");
+    form.id = "dispatchForm";
+
+    for (let i = 0; i < numCards; i++) {
+      const card = document.createElement("div");
+      card.className = "card";
+      const radioId = `r_${Date.now()}_${i}`;
+      card.innerHTML = `
+        <p>Dispatch ID: ${radioId}</p>
+        <input type="radio" name="${radioId}" value="Accepted"> Accept<br>
+      `;
+      form.appendChild(card);
+    }
+
+    const submitBtn = document.createElement("button");
+    submitBtn.type = "button";
+    submitBtn.textContent = "Submit";
+    submitBtn.className = "ack-button";
+    submitBtn.style.marginTop = "1rem";
+    submitBtn.onclick = () => {
+      const radios = form.querySelectorAll("input[type='radio']");
+      let acknowledgedCount = 0;
+      radios.forEach(radio => {
+        if (radio.checked) acknowledgedCount++;
+      });
+      totalAcknowledged += acknowledgedCount;
+      ackPoints.push(acknowledgedCount);
+      labels.push(new Date().toLocaleTimeString());
+      if (labels.length > 20) {
+        labels.shift();
+        ackPoints.shift();
+      }
+      chart.update();
+      updateStats();
+      dispatchContainer.innerHTML = '';
+    };
+
+    form.appendChild(submitBtn);
+    dispatchContainer.appendChild(form);
+
+    totalDispatches += numCards;
+    updateStats();
+  }
+
+  document.getElementById("loginForm").onsubmit = (e) => {
+    e.preventDefault();
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+    if (user === "adumb" && pass === "password") {
+      document.getElementById("login").classList.add("hidden");
+      document.getElementById("app").classList.remove("hidden");
+      document.getElementById("botStatus").textContent = "✅ Connected";
+      setInterval(generateDispatchCard, 5000);
+    } else {
+      alert("Incorrect login credentials.");
+    }
+  };
+
+  document.getElementById("logout").onclick = () => location.reload();
+
+  document.getElementById("simulateFail").onclick = () => {
+    const modal = document.getElementById("failureModal");
+    const audio = document.getElementById("failureSound");
+    modal.style.display = "block";
+    audio.play();
+    emailjs.send("service_68nsjgw", "template_rbgedad", {
+      name: "Paul Kiehn",
+      email: ["ricardo.barbosa@edf-re.com"],
+      message: `${new Date().toLocaleString()}`
+    }).then(() => console.log("📧 Email sent"))
+      .catch((err) => console.error("❌ Email failed:", err));
+  };
+
+  document.getElementById("closeModal").onclick = () => {
+    document.getElementById("failureModal").style.display = "none";
+    const audio = document.getElementById("failureSound");
+    audio.pause();
+    audio.currentTime = 0;
+  };
+</script>
+</body>
+</html>
